@@ -11,7 +11,6 @@ const List = () => {
 
   const onclickDeleteTasks = (id) => {
     deleteTasks(id);
-    console.log(id);
   };
 
   return (
