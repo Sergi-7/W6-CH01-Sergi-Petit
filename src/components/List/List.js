@@ -1,17 +1,32 @@
+import { useEffect } from "react";
+import useTasks from "../../hooks/useTasks";
 import Card from "../Card/Card";
 
-const List = ({ taskslist }) => {
-  const testList = [
-    { id: 1, title: "test1", description: "test1" },
-    { id: 2, title: "test2", description: "test2" },
-    { id: 3, title: "test3", description: "test3" },
-  ];
+const List = () => {
+  const { tasks, loadTasks, deleteTasks } = useTasks();
+
+  useEffect(() => {
+    loadTasks();
+  }, [loadTasks]);
+
+  const onclickDeleteTasks = (id) => {
+    deleteTasks(id);
+    console.log(id);
+  };
 
   return (
     <>
-      {testList.map((task) => (
-        <Card title={task.title} description={task.description} key={task.id} />
-      ))}
+      <ul>
+        {tasks.map((task) => (
+          <Card
+            title={task.task}
+            description={task.description}
+            id={task.id}
+            key={task.id}
+            actionOnClick={onclickDeleteTasks}
+          />
+        ))}
+      </ul>
     </>
   );
 };
