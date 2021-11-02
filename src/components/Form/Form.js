@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useTasks from "../../hooks/useTasks";
 
 const Form = () => {
+  const initialTask = { task: "", description: "" };
   const { createTasks } = useTasks();
-  const [task, setTask] = useState({ task: "", description: "" });
+  const [task, setTask] = useState(initialTask);
 
   const handleSubmit = (event) => {
     createTasks(task);
     event.preventDefault();
+    setTask(initialTask);
   };
 
   const handleTitleOnChange = (event) => {
@@ -28,7 +30,9 @@ const Form = () => {
         id="description"
         onChange={handleDescriptionOnChange}
       />
-      <input type="submit" value="submit"></input>
+      <button type="submit" value="submit">
+        Submit
+      </button>
     </form>
   );
 };

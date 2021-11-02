@@ -15,8 +15,7 @@ export const deleteTaskAction = (id) => ({
   id,
 });
 
-export const updateTaskAction = (id, task) => ({
+export const updateTaskAction = (task) => ({
   type: actionTypes.updateTask,
-  id,
   task,
 });
