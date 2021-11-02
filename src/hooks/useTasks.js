@@ -16,9 +16,10 @@ const useTasks = () => {
     dispatch(createTaskThunk(task));
   };
 
-  const deleteTasks = (task) => {
-    dispatch(deleteTaskThunk(task));
+  const deleteTasks = (id) => {
+    dispatch(deleteTaskThunk(id));
   };
+
   return {
     tasks,
     loadTasks,

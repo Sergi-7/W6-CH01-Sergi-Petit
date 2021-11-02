@@ -10,7 +10,6 @@ const tasksReducer = (tasks = [], action) => {
 
     case actionTypes.createTask:
       newTasksState = [...tasks, action.task];
-      console.log(action.task);
       break;
 
     case actionTypes.deleteTask:

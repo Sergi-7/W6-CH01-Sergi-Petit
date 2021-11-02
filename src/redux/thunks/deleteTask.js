@@ -1,7 +1,7 @@
 import { deleteTaskAction } from "../actions/actionCreators";
 
 const deleteTaskThunk = (id) => async (dispatch) => {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}${id}`, {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/${id}`, {
     method: "DELETE",
   });
 

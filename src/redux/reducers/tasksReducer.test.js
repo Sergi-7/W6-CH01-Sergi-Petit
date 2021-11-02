@@ -28,7 +28,7 @@ describe("Given a tasksReducer", () => {
 
       const action = createTaskAction(newTask);
       const newTaskList = tasksReducer(taskList, action);
-      console.log(newTaskList);
+
       expect(newTaskList).toContain(newTask);
     });
   });

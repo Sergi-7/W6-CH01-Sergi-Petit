@@ -7,7 +7,6 @@ const Form = () => {
 
   const handleSubmit = (event) => {
     createTasks(task);
-    console.log(task);
     event.preventDefault();
   };
 
@@ -17,7 +16,6 @@ const Form = () => {
 
   const handleDescriptionOnChange = (event) => {
     setTask({ ...task, description: event.target.value });
-    console.log(task);
   };
 
   return (

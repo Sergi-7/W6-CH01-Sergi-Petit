@@ -10,7 +10,6 @@ const createTaskThunk = (task) => {
       },
     });
     const newTask = await response.json();
-    console.log(newTask);
     dispatch(createTaskAction(newTask));
   };
 };

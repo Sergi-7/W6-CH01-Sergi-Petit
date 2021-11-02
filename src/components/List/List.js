@@ -11,7 +11,6 @@ const List = () => {
 
   const onclickDeleteTasks = (id) => {
     deleteTasks(id);
-    console.log(id);
   };
 
   return (
@@ -23,7 +22,7 @@ const List = () => {
             description={task.description}
             id={task.id}
             key={task.id}
-            actionOnClick={onclickDeleteTasks}
+            actionOnClick={() => onclickDeleteTasks(task.id)}
           />
         ))}
       </ul>
