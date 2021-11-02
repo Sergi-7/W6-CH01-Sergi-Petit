@@ -8,7 +8,9 @@ const Card = ({ id, title, description, actionOnClick, editActionOnClick }) => {
       <p>{description}</p>
       <input type="checkbox" />
       <button onClick={actionOnClick}>Delete</button>
-      <button onClick={editActionOnClick}>Edit</button>
+      <button onClick={editActionOnClick} disabled>
+        Edit
+      </button>
     </li>
   );
 };
