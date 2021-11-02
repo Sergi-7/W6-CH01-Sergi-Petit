@@ -1,8 +1,10 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { loadCurrentTaskAction } from "../redux/actions/actionCreators";
 import loadTasksThunk from "../redux/thunks";
 import createTaskThunk from "../redux/thunks/createTask";
 import deleteTaskThunk from "../redux/thunks/deleteTask";
+import updateTaskThunk from "../redux/thunks/updateTask";
 
 const useTasks = () => {
   const dispatch = useDispatch();
@@ -20,11 +22,21 @@ const useTasks = () => {
     dispatch(deleteTaskThunk(id));
   };
 
+  const updateTask = (task) => {
+    dispatch(updateTaskThunk(task));
+  };
+
+  const loadTask = (task) => {
+    dispatch(loadCurrentTaskAction(task));
+  };
+
   return {
     tasks,
     loadTasks,
     createTasks,
     deleteTasks,
+    updateTask,
+    loadTask,
   };
 };
 
