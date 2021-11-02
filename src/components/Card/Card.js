@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const Card = ({ id, title, description, actionOnClick }) => {
+const Card = ({ id, title, description, actionOnClick, editActionOnClick }) => {
   return (
     <li>
       <h2>{title}</h2>
@@ -8,6 +8,9 @@ const Card = ({ id, title, description, actionOnClick }) => {
       <p>{description}</p>
       <input type="checkbox" />
       <button onClick={actionOnClick}>Delete</button>
+      <button onClick={editActionOnClick} disabled>
+        Edit
+      </button>
     </li>
   );
 };

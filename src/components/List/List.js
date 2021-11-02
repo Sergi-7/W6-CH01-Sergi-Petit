@@ -3,7 +3,7 @@ import useTasks from "../../hooks/useTasks";
 import Card from "../Card/Card";
 
 const List = () => {
-  const { tasks, loadTasks, deleteTasks } = useTasks();
+  const { tasks, loadTasks, deleteTasks, loadTask } = useTasks();
 
   useEffect(() => {
     loadTasks();
@@ -13,6 +13,9 @@ const List = () => {
     deleteTasks(id);
   };
 
+  const onClickLoadCurrentTask = (task) => {
+    loadTask(task);
+  };
   return (
     <>
       <ul>
@@ -23,6 +26,7 @@ const List = () => {
             id={task.id}
             key={task.id}
             actionOnClick={() => onclickDeleteTasks(task.id)}
+            editActionOnClick={() => onClickLoadCurrentTask(task)}
           />
         ))}
       </ul>

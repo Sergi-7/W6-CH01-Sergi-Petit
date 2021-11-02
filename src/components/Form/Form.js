@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useTasks from "../../hooks/useTasks";
 
 const Form = () => {

@@ -19,3 +19,8 @@ export const updateTaskAction = (task) => ({
   type: actionTypes.updateTask,
   task,
 });
+
+export const loadCurrentTaskAction = (task) => ({
+  type: actionTypes.loadCurrentTask,
+  task,
+});

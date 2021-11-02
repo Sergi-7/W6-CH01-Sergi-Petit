@@ -3,7 +3,7 @@ import tasksReducer from "./tasksReducer.js";
 import {
   getRandomTask,
   getRandomTaskslist,
-} from "../../components/factories/tasksFactory";
+} from "../../factories/tasksFactory";
 import actionTypes from "../actions/actionTypes";
 
 describe("Given a tasksReducer", () => {
