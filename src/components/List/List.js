@@ -22,7 +22,7 @@ const List = () => {
             description={task.description}
             id={task.id}
             key={task.id}
-            actionOnClick={onclickDeleteTasks}
+            actionOnClick={() => onclickDeleteTasks(task.id)}
           />
         ))}
       </ul>
