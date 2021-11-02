@@ -1,14 +1,15 @@
 import { createTaskAction, deleteTaskAction } from "../actions/actionCreators";
 import tasksReducer from "./tasksReducer.js";
+import {
+  getRandomTask,
+  getRandomTaskslist,
+} from "../../components/factories/tasksFactory";
+import actionTypes from "../actions/actionTypes";
 
 describe("Given a tasksReducer", () => {
   describe("When it receives a deleteTask action", () => {
     test("Then it should return a list without the specified id task", () => {
-      const taskList = [
-        { id: 1, title: "test1", description: "test1" },
-        { id: 2, title: "test2", description: "test2" },
-        { id: 3, title: "test3", description: "test3" },
-      ];
+      const taskList = getRandomTaskslist(3);
       const deletedTask = taskList[1];
 
       const action = deleteTaskAction(deletedTask.id);
@@ -19,12 +20,8 @@ describe("Given a tasksReducer", () => {
   });
   describe("When it receives a createTask action", () => {
     test("Then it should return a list with the new task", () => {
-      const taskList = [
-        { id: 1, title: "test1", description: "test1" },
-        { id: 2, title: "test2", description: "test2" },
-        { id: 3, title: "test3", description: "test3" },
-      ];
-      const newTask = { id: 4, title: "test4", description: "test4" };
+      const taskList = getRandomTaskslist(3);
+      const newTask = getRandomTask();
 
       const action = createTaskAction(newTask);
       const newTaskList = tasksReducer(taskList, action);
@@ -32,7 +29,18 @@ describe("Given a tasksReducer", () => {
       expect(newTaskList).toContain(newTask);
     });
   });
-  describe("When it receives an updateTask action", () => {
-    test("Then it should return a list with specified task updated", () => {});
+  describe("When it receives a loadTasks action with a taskslist", () => {
+    test("Then it should return a list with all the tasks", () => {
+      const initialTaskslist = [];
+      const tasksList = getRandomTaskslist(3);
+      const action = {
+        type: actionTypes.loadTasksList,
+        taskslist: tasksList,
+      };
+
+      const newList = tasksReducer(initialTaskslist, action);
+
+      expect(newList).toEqual(tasksList);
+    });
   });
 });
