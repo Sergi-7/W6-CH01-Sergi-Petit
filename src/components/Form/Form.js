@@ -7,8 +7,8 @@ const Form = () => {
   const [task, setTask] = useState(initialTask);
 
   const handleSubmit = (event) => {
-    createTasks(task);
     event.preventDefault();
+    createTasks(task);
     setTask(initialTask);
   };
 
@@ -23,12 +23,18 @@ const Form = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="text">Title</label>
-      <input type="text" id="text" onChange={handleTitleOnChange} />
+      <input
+        type="text"
+        id="text"
+        onChange={handleTitleOnChange}
+        value={task.task}
+      />
       <label htmlFor="description">Description</label>
       <input
         type="text"
         id="description"
         onChange={handleDescriptionOnChange}
+        value={task.description}
       />
       <button type="submit" value="submit">
         Submit
